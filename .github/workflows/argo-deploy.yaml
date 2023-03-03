@@ -13,7 +13,7 @@ jobs:
       id: imgupd
       uses: mikefarah/yq@master
       with:
-        cmd: yq eval '.spec.template.spec.containers[0].image = "${{ github.event.client_payload.image }}"' -i sniohub-front/02_react.yaml
+        cmd: yq eval '.spec.template.spec.containers[0].image = "${{ github.event.client_payload.image }}"' -i sniphub-front/02_react.yaml
       
     - uses: stefanzweifel/git-auto-commit-action@v4
       with:
