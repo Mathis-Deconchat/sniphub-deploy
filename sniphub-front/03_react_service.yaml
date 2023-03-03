@@ -23,12 +23,12 @@ spec:
   gateways:
   - sniphub-gateway
   http:
-    - match:
-        - uri:
-            prefix: /
-    - route:
-        - destination:
-            host: sniphub-front
-            port: 
-              number: 80
+  - match:
+      - uri:
+          prefix: /
+    route:
+      - destination:
+        host: sniphub-front
+        port: 
+          number: 80
 ---
