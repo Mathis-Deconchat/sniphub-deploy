@@ -16,13 +16,11 @@ spec:
         namespace: sniphub
     spec:
       containers:
-      - name: sniphub-front
-        image: registry.digitalocean.com/docker-cours/sniphub-front:main-14
-        ports:
-        - containerPort: 80
-          name: http
-        env:
-          - name: REACT_APP_API_URL
-            value: "http://sniphub-back:4000"
-
-
+        - name: sniphub-front
+          image: registry.digitalocean.com/docker-cours/sniphub-front:main-15
+          ports:
+            - containerPort: 80
+              name: http
+          env:
+            - name: REACT_APP_API_URL
+              value: "http://sniphub-back:4000"
