@@ -11,7 +11,7 @@ spec:
   template:
     metadata:
       labels:
-        app: sniph-front
+        app: sniphub-front
         namespace: sniphub
     spec:
       containers:
