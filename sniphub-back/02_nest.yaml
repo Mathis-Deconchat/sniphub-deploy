@@ -23,4 +23,4 @@ spec:
               name: http
           env:
             - name: DATABASE_URL
-              value: postgresql://postgres:ZGVkZWRlZGVkZWRldmdyZ3RqZ2sK@postgres-statefulset.sniphub.svc.cluster.local:5432/postgresdb
+              value: postgresql://admin:ZGVkZWRlZGVkZWRldmdyZ3RqZ2sK@postgres-statefulset.sniphub.svc.cluster.local:5432/postgresdb

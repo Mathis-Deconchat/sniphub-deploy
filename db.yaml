@@ -56,18 +56,18 @@ metadata:
   labels:
     app: postgres
 spec:
-  serviceName: "postgres"
+  serviceName: postgres-statefulset
   replicas: 1
   selector:
     matchLabels:
-      app: postgres
+      app: postgres-statefulset
   template:
     metadata:
       labels:
-        app: postgres
+        app: postgres-statefulset
     spec:
       containers:
-      - name: postgres
+      - name: postgres-statefulset
         image: postgres:12
         envFrom:
         - configMapRef:
