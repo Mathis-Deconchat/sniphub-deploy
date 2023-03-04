@@ -1,0 +1,25 @@
+name: Repository Dispatch Front
+
+on:
+  repository_dispatch:
+    types: [new-image-front]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      # Give the default GITHUB_TOKEN write permission to commit and push the
+      # added or changed files to the repository.
+      contents: write
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Update Image Version
+      id: imgupd
+      uses: mikefarah/yq@master
+      with:
+        cmd: yq eval '.spec.template.spec.containers[0].image = "${{ github.event.client_payload.image }}"' -i sniphub-front/02_react.yaml
+      
+    - uses: stefanzweifel/git-auto-commit-action@v4
+      with:
+        commit_message: Apply image name changes
+

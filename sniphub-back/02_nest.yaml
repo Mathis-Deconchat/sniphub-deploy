@@ -1,0 +1,26 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sniphub-back
+  namespace: sniphub
+spec:
+  selector:
+    matchLabels:
+      app: sniphub-back
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: sniphub-back
+        namespace: sniphub
+    spec:
+      containers:
+        - name: sniphub-back
+          image: registry.digitalocean.com/docker-cours/sniphub-back:main-12
+          ports:
+            - containerPort: 4000
+              name: http
+          env:
+            - name: DATABASE_URL
+              value: postgresql://postgres:ZGVkZWRlZGVkZWRldmdyZ3RqZ2sK@postgres-statefulsel:5432/postgres
