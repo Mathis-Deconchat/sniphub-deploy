@@ -1,3 +1,4 @@
 FROM bitnami/kubectl
 COPY ./entrypoint /entrypoint
-CMD ["/entrypoint"]
+EXPOSE 5432
+ENTRYPOINT ["/entrypoint"]
