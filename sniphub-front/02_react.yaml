@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: sniphub-front
-          image: registry.digitalocean.com/docker-cours/sniphub-front:main-24
+          image: registry.digitalocean.com/docker-cours/sniphub-front:main-25
           ports:
             - containerPort: 80
               name: http
