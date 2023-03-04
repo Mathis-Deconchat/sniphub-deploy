@@ -9,8 +9,8 @@ spec:
     app: sniphub-back
   ports:
     - name: http
-      port: 3000
-      targetPort: 3000
+      port: 4000
+      targetPort: 4000
 
 ---
 apiVersion: networking.istio.io/v1alpha3
@@ -27,9 +27,11 @@ spec:
   - match:
     - uri:
         prefix: /graphql
+    rewrite:
+      uri: '/graphql'
     route:
     - destination:
         host: sniphub-back
         port:
-          number: 3000
+          number: 4000
 ---
