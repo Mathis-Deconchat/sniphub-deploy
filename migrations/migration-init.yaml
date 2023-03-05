@@ -1,0 +1,35 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: postgres-migration
+  namespace: sniphub
+stringData:
+  GITHUB_PAT: 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
+  BRANCH: master
+  GIT_PROJECT: sniphub-back
+  DATABASE_URL: postgresql://admin:ZGVkZWRlZGVkZWRldmdyZ3RqZ2sK@postgres-statefulset:5432/postgresdb
+
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: postgres-migration
+  namespace: sniphub
+spec:
+  template:
+    metadata: 
+      annotations:
+        sidecar.istio.io/inject: "false"
+    spec: 
+      containers:
+      - name: postgres-migration
+        image: registry.digitalocean.com/docker-cours/sniphub-migrations:0.2
+        imagePullPolicy: Always
+        envFrom:
+        - secretRef:
+            name: postgres-migration
+
+      restartPolicy: Never
+
+  backoffLimit: 4
+
