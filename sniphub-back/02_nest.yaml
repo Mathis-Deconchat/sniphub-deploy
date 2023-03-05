@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: sniphub-back
-          image: registry.digitalocean.com/docker-cours/sniphub-back:main-36
+          image: registry.digitalocean.com/docker-cours/sniphub-back:main-aaf4b12618e7f21855016984a6ab29c3157f5261
           ports:
             - containerPort: 4000
               name: http
