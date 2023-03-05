@@ -32,7 +32,7 @@ spec:
     - server auth
     - client auth
   dnsNames:
-    - "sniphub.darmanin.info" # For demo purposes
+    - "sniphub.darmanin.info" 
   issuerRef:
     name: letsencrypt-prod-cluster
     kind: ClusterIssuer
