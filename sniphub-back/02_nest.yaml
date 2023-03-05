@@ -17,14 +17,13 @@ spec:
     spec:
       containers:
         - name: sniphub-back
-          image: registry.digitalocean.com/docker-cours/sniphub-back:main-ab9cd26c7175e302954d747152d2d91afa3d9b24
+          image: registry.digitalocean.com/docker-cours/sniphub-back:main-3352cf04d3f5644b5d72668792859be74bfd0cf6
           ports:
             - containerPort: 4000
               name: http
           env:
             - name: DATABASE_URL
               value: postgresql://admin:ZGVkZWRlZGVkZWRldmdyZ3RqZ2sK@postgres-statefulset.sniphub.svc.cluster.local:5432/postgresdb
-              
           resources:
             limits:
               cpu: "1"
