@@ -42,6 +42,7 @@ apiVersion: networking.istio.io/v1alpha3
 kind: Gateway
 metadata:
   name: sniphub-gateway
+  namespace: sniphub
 spec:
   selector:
     istio: ingressgateway

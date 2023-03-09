@@ -19,7 +19,7 @@ spec:
         - name: sniphub-front
           image: registry.digitalocean.com/docker-cours/sniphub-front:main-46
           ports:
-            - containerPort: 80
+            - containerPort: 8080
               name: http
           env:
             - name: REACT_APP_API_URL
