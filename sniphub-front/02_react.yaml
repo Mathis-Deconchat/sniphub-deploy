@@ -21,7 +21,7 @@ spec:
         runAsGroup: 101
       containers:
         - name: sniphub-front
-          image: registry.digitalocean.com/docker-cours/sniphub-front:main-41
+          image: registry.digitalocean.com/docker-cours/sniphub-front:main-43
           ports:
             - containerPort: 80
               name: http
