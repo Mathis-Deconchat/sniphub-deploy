@@ -19,15 +19,14 @@ spec:
         runAsNonRoot: true
         runAsUser: 101
         runAsGroup: 101
-
       containers:
         - name: sniphub-front
-          image: registry.digitalocean.com/docker-cours/sniphub-front:main-36
+          image: registry.digitalocean.com/docker-cours/sniphub-front:main-37
           ports:
             - containerPort: 80
               name: http
           env:
             - name: REACT_APP_API_URL
               value: "http://sniphub-back:4000"
-          securityContext:  
+          securityContext:
             allowPrivilegeEscalation: false
