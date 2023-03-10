@@ -1,8 +1,10 @@
-secret:
+apiVersion: v1
+kind: Secret
+metadata:
   name: sniphub-back
   namespace: sniphub
-  data:
-    DATABASE_URL: postgresql://admin:ZGVkZWRlZGVkZWRldmdyZ3RqZ2sK@postgres-statefulset.sniphub.svc.cluster.local:5432/postgresdb
+stringData:
+  DATABASE_URL: postgresql://admin:ZGVkZWRlZGVkZWRldmdyZ3RqZ2sK@postgres-statefulset.sniphub.svc.cluster.local:5432/postgresdb
 
 ---
 apiVersion: apps/v1

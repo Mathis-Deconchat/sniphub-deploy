@@ -15,7 +15,10 @@ spec:
         app: sniphub-front
         namespace: sniphub
     spec:
+      securityContext:
+        runAsUser: 101
       containers:
+
         - name: sniphub-front
           image: registry.digitalocean.com/docker-cours/sniphub-front:main-eb36a518fafc3e4fbded5b1c950143f3692c6dcc
           ports:
@@ -24,5 +27,36 @@ spec:
           env:
             - name: REACT_APP_API_URL
               value: "http://sniphub-back:4000"
-          # securityContext:  
-          #   allowPrivilegeEscalation: false
+          securityContext:  
+            capabilities:
+              drop:
+                - NET_RAW
+            allowPrivilegeEscalation: false
+            runAsNonRoot: true
+            readOnlyRootFilesystem: true
+          resources:
+            limits:
+              cpu: "1"
+              memory: "512Mi"
+            requests:
+              cpu: "0.5"
+              memory: "256Mi"
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 8080
+            initialDelaySeconds: 30
+            periodSeconds: 10
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 8080
+            initialDelaySeconds: 30
+            periodSeconds: 10
+          volumeMounts:
+          - mountPath: /tmp
+            name: tmp
+      volumes:
+      - emptyDir: {}
+        name: tmp
+
