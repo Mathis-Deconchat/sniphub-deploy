@@ -20,7 +20,7 @@ spec:
         runAsUser: 101
       containers:
         - name: sniphub-front
-          image: registry.digitalocean.com/docker-cours/sniphub-front:main-523906a11e401678bde973b53a4ba4f4448bdcb4
+          image: registry.digitalocean.com/docker-cours/sniphub-front:main-5a48dec50319645f0748c3165cdda8dac802563a
           ports:
             - containerPort: 8080
               name: http
