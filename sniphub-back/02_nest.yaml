@@ -5,7 +5,11 @@ metadata:
   namespace: sniphub
 stringData:
   DATABASE_URL: postgresql://admin:ZGVkZWRlZGVkZWRldmdyZ3RqZ2sK@postgres-statefulset.sniphub.svc.cluster.local:5432/postgresdb
-
+spec:
+  template:
+    spec:
+      containers:
+        - image: registry.digitalocean.com/docker-cours/sniphub-back:main-db419404511bf8e8d501f2b83d3ec0e0c3f50454
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -27,17 +31,16 @@ spec:
     spec:
       containers:
         - name: sniphub-back
-          image: registry.digitalocean.com/docker-cours/sniphub-back:main-c9f514088a1a7a2fdc154cfd0a393de63c3cf3fc
+          image: registry.digitalocean.com/docker-cours/sniphub-back:main-db419404511bf8e8d501f2b83d3ec0e0c3f50454
           ports:
             - containerPort: 4000
               name: http
-          env: 
+          env:
             - name: DATABASE_URL
               valueFrom:
                 secretKeyRef:
                   name: sniphub-back
                   key: DATABASE_URL
-
           resources:
             limits:
               cpu: "1"
