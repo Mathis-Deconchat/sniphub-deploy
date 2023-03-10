@@ -1,15 +1,4 @@
-apiVersion: v1
-kind: Secret
-metadata:
-  name: sniphub-back
-  namespace: sniphub
-stringData:
-  DATABASE_URL: postgresql://admin:ZGVkZWRlZGVkZWRldmdyZ3RqZ2sK@postgres-statefulset.sniphub.svc.cluster.local:5432/postgresdb
-spec:
-  template:
-    spec:
-      containers:
-        - image: registry.digitalocean.com/docker-cours/sniphub-back:main-db419404511bf8e8d501f2b83d3ec0e0c3f50454
+
 ---
 apiVersion: apps/v1
 kind: Deployment
