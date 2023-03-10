@@ -23,6 +23,7 @@ spec:
       labels:
         app: sniphub-back
         namespace: sniphub
+        snip-auth: "true"
     spec:
       containers:
         - name: sniphub-back
